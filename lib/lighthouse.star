@@ -32,6 +32,7 @@ def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_conte
         total_number_of_validator_keys,
         network_params["genesis_delay"],
         network_params["capella_fork_epoch"],
+        network_params["deneb_fork_epoch"],
     )
 
     cl_validator_data = validator_keystores.generate_cl_validator_keystores(
