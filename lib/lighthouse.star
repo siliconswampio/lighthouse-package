@@ -47,7 +47,7 @@ def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_conte
     # Launch the service
     service_name = "{0}{1}".format(CLIENT_SERVICE_NAME_PREFIX, 0)
     launcher = lighthouse.new_lighthouse_launcher(cl_genesis_data)
-    lighthouse.launch(
+    return lighthouse.launch(
         plan,
         launcher,
         service_name,
