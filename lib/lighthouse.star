@@ -13,7 +13,7 @@ CLIENT_LOG_LEVEL = "debug"
 CLIENT_IMAGE = input_parser.DEFAULT_CL_IMAGES["lighthouse"]
 
 
-def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_context):
+def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_context, beacon_extra_params = [], validator_extra_params = []):
     num_participants = 1 # The number of participants in this setup is always 1
     # Prepare the genesis data
     genesis_generation_config_yml_template = read_file(static_files.CL_GENESIS_GENERATION_CONFIG_TEMPLATE_FILEPATH)
@@ -57,6 +57,6 @@ def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_conte
         CLIENT_CONTEXT_BOOTNODE,
         el_context,  # <- if you have multiple nodes, include their contexts here
         new_cl_node_validator_keystores,
-        [], # extra_beacon_params
-        [], # extra_validator_params
+        beacon_extra_params,
+        validator_extra_params
     )
