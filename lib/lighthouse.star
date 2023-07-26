@@ -15,6 +15,7 @@ CLIENT_IMAGE = input_parser.DEFAULT_CL_IMAGES["lighthouse"]
 
 def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_context, beacon_extra_params = [], validator_extra_params = []):
     num_participants = 1 # The number of participants in this setup is always 1
+    participants = [struct(cl_client_type = "lighthouse", el_client_type = "eth")]
     # Prepare the genesis data
     genesis_generation_config_yml_template = read_file(static_files.CL_GENESIS_GENERATION_CONFIG_TEMPLATE_FILEPATH)
     genesis_generation_mnemonics_yml_template = read_file(static_files.CL_GENESIS_GENERATION_MNEMONICS_TEMPLATE_FILEPATH)
@@ -38,7 +39,7 @@ def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_conte
     cl_validator_data = validator_keystores.generate_cl_validator_keystores(
         plan,
         network_params["preregistered_validator_keys_mnemonic"],
-        num_participants,
+        participants,
         network_params["num_validator_keys_per_node"],
     )
     preregistered_validator_keys_for_nodes = cl_validator_data.per_node_keystores
@@ -57,6 +58,7 @@ def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_conte
         CLIENT_CONTEXT_BOOTNODE,
         el_context,  # <- if you have multiple nodes, include their contexts here
         new_cl_node_validator_keystores,
+        0,0,0,0,0,0,0,0,
         beacon_extra_params,
         validator_extra_params
     )
