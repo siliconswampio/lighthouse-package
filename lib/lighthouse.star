@@ -59,6 +59,8 @@ def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_conte
         el_context,  # <- if you have multiple nodes, include their contexts here
         new_cl_node_validator_keystores,
         0,0,0,0,0,0,0,0,
+        False, # snooper not enabled
+        None, # snooper engine context is thus none
         beacon_extra_params,
         validator_extra_params
     )
