@@ -58,7 +58,7 @@ def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_conte
         CLIENT_CONTEXT_BOOTNODE,
         el_context,  # <- if you have multiple nodes, include their contexts here
         new_cl_node_validator_keystores,
-        0,0,0,0,0,0,0,0,
+        0,0,0,0,0,0,0,0, # use default beacon and validator cpu and memory allocations
         False, # snooper not enabled
         None, # snooper engine context is thus none
         beacon_extra_params,
