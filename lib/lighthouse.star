@@ -40,8 +40,7 @@ def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_conte
     cl_validator_data = validator_keystores.generate_cl_validator_keystores(
         plan,
         network_params["preregistered_validator_keys_mnemonic"],
-        participants,
-        network_params["num_validator_keys_per_node"],
+        participants
     )
     preregistered_validator_keys_for_nodes = cl_validator_data.per_node_keystores
     new_cl_node_validator_keystores = preregistered_validator_keys_for_nodes[0]
