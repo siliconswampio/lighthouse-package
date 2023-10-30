@@ -15,7 +15,7 @@ CLIENT_IMAGE = input_parser.DEFAULT_CL_IMAGES["lighthouse"]
 
 def run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_context, beacon_extra_params = [], validator_extra_params = []):
     num_participants = 1 # The number of participants in this setup is always 1
-    participants = [struct(cl_client_type = "lighthouse", el_client_type = "eth")]
+    participants = struct(cl_client_type = "lighthouse", el_client_type = "eth")
     # Prepare the genesis data
     genesis_generation_config_yml_template = read_file(static_files.CL_GENESIS_GENERATION_CONFIG_TEMPLATE_FILEPATH)
     genesis_generation_mnemonics_yml_template = read_file(static_files.CL_GENESIS_GENERATION_MNEMONICS_TEMPLATE_FILEPATH)
